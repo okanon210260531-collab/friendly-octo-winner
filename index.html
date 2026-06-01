@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>株式会社Reimei｜新しい夜明けをつくる会社</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; color: #102033; background: #f5f7fb; line-height: 1.8; }
+    a { color: inherit; text-decoration: none; }
+    .hero { min-height: 100vh; background: radial-gradient(circle at 20% 20%, rgba(255,214,102,.35), transparent 25%), linear-gradient(135deg,#07111f 0%,#102a54 52%,#ffb703 100%); color: #fff; display:flex; align-items:center; position:relative; overflow:hidden; }
+    .hero::after { content:"REIMEI"; position:absolute; right:-40px; bottom:-60px; font-size:clamp(80px,18vw,260px); font-weight:900; letter-spacing:.08em; color:rgba(255,255,255,.055); line-height:1; }
+    .container { width:min(1120px,92%); margin:0 auto; position:relative; z-index:1; }
+    header { position:fixed; top:0; left:0; width:100%; z-index:10; padding:18px 0; backdrop-filter:blur(14px); background:rgba(7,17,31,.72); border-bottom:1px solid rgba(255,255,255,.08); }
+    .nav { width:min(1120px,92%); margin:0 auto; display:flex; justify-content:space-between; align-items:center; color:#fff; }
+    .logo { font-size:22px; font-weight:900; letter-spacing:.06em; }
+    .logo span { color:#ffcb47; }
+    .nav-links { display:flex; gap:26px; font-size:14px; opacity:.95; }
+    .hero-content { padding-top:80px; max-width:760px; }
+    .badge { display:inline-block; padding:8px 16px; border-radius:999px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); font-weight:700; margin-bottom:22px; }
+    h1 { font-size:clamp(42px,7vw,82px); line-height:1.1; font-weight:900; letter-spacing:.02em; margin-bottom:24px; }
+    .hero p { font-size:clamp(16px,2vw,22px); max-width:680px; color:rgba(255,255,255,.9); margin-bottom:34px; }
+    .buttons { display:flex; gap:16px; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:14px 24px; border-radius:999px; font-weight:800; transition:.25s; }
+    .btn-primary { background:#ffcb47; color:#07111f; box-shadow:0 14px 32px rgba(255,203,71,.28); }
+    .btn-secondary { border:1px solid rgba(255,255,255,.45); color:#fff; }
+    .btn:hover { transform:translateY(-3px); }
+    section { padding:90px 0; }
+    .section-title { text-align:center; margin-bottom:48px; }
+    .section-title small { color:#ff9f1c; font-weight:900; letter-spacing:.12em; }
+    .section-title h2 { font-size:clamp(30px,4vw,46px); margin-top:8px; color:#07111f; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .card { background:#fff; border-radius:24px; padding:30px; box-shadow:0 18px 45px rgba(16,32,51,.08); border:1px solid rgba(16,32,51,.06); }
+    .card-icon { width:54px; height:54px; border-radius:18px; background:linear-gradient(135deg,#ffcb47,#ff9f1c); display:grid; place-items:center; font-size:28px; margin-bottom:18px; }
+    .card h3 { font-size:22px; margin-bottom:10px; }
+    .dark { background:#07111f; color:#fff; }
+    .dark .section-title h2 { color:#fff; }
+    .message-wrap { display:grid; grid-template-columns:.9fr 1.1fr; gap:36px; align-items:center; }
+    .ceo-box { background:linear-gradient(135deg,#ffcb47,#ff9f1c); color:#07111f; border-radius:28px; padding:38px; box-shadow:0 24px 60px rgba(255,159,28,.25); }
+    .ceo-box .name { font-size:30px; font-weight:900; margin-top:10px; }
+    .ceo-photo-box { text-align:center; }
+    .ceo-photo { width:100%; max-width:320px; aspect-ratio:3/4; object-fit:cover; object-position:center top; border-radius:26px; margin-bottom:22px; box-shadow:0 18px 40px rgba(7,17,31,.25); border:4px solid rgba(255,255,255,.45); }
+    .message { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:28px; padding:34px; }
+    .info-table { max-width:820px; margin:0 auto; background:#fff; border-radius:24px; overflow:hidden; box-shadow:0 18px 45px rgba(16,32,51,.08); }
+    .row { display:grid; grid-template-columns:220px 1fr; border-bottom:1px solid #edf0f5; }
+    .row:last-child { border-bottom:none; }
+    .row dt,.row dd { padding:20px 24px; }
+    .row dt { background:#f8fafc; font-weight:900; }
+    .salary { font-size:28px; font-weight:900; color:#ff9f1c; }
+
+    .important { background:linear-gradient(135deg,#fff7df,#ffffff); position:relative; overflow:hidden; }
+    .important::before { content:"IMPORTANT"; position:absolute; left:-20px; top:20px; font-size:clamp(56px,12vw,180px); font-weight:900; color:rgba(255,159,28,.08); letter-spacing:.08em; }
+    .value-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+    .value-card { background:#fff; border:2px solid rgba(255,159,28,.28); border-radius:28px; padding:32px; box-shadow:0 20px 50px rgba(16,32,51,.08); position:relative; z-index:1; }
+    .value-card strong { display:block; font-size:clamp(26px,4vw,42px); line-height:1.25; color:#ff9f1c; margin-bottom:10px; }
+    .value-card p { font-weight:700; }
+    .big-value { grid-column:1 / -1; background:linear-gradient(135deg,#07111f,#102a54); color:#fff; border-color:rgba(255,203,71,.6); text-align:center; }
+    .big-value strong { color:#ffcb47; font-size:clamp(34px,6vw,72px); }
+    .contact { background:linear-gradient(135deg,#102a54,#07111f); color:#fff; text-align:center; }
+    .contact h2 { font-size:clamp(30px,4vw,48px); margin-bottom:16px; }
+    .contact p { max-width:680px; margin:0 auto 28px; color:rgba(255,255,255,.86); }
+    footer { background:#030812; color:rgba(255,255,255,.7); text-align:center; padding:24px; font-size:14px; }
+    @media (max-width:820px) { .nav-links{display:none;} .hero{min-height:86vh;} .cards,.message-wrap,.value-grid{grid-template-columns:1fr;} .big-value{grid-column:auto;} section{padding:64px 0;} .row{grid-template-columns:1fr;} .row dt,.row dd{padding:16px 20px;} }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">株式会社<span>Reimei</span></div>
+      <div class="nav-links"><a href="#service">事業内容</a><a href="#message">代表挨拶</a><a href="#company">会社概要</a><a href="#contact">お問い合わせ</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="badge">夜明けのように、明るい未来へ。</div>
+        <h1>褒める力で、<br>会社の未来を照らす。</h1>
+        <p>株式会社Reimeiは、代表取締役社長 大平 黎鳴を中心に、リモートワークを軸とした新しい働き方を目指す会社です。最高の褒め言葉が、最高の成果につながる世界へ。移動時間ゼロのリモート環境で、重要な仕事に全力集中できます。</p>
+        <div class="buttons"><a class="btn btn-primary" href="#service">事業を見る</a><a class="btn btn-secondary" href="#contact">お問い合わせ</a></div>
+      </div>
+    </section>
+    <section id="service">
+      <div class="container">
+        <div class="section-title"><small>SERVICE</small><h2>事業内容</h2></div>
+        <div class="cards">
+          <div class="card"><div class="card-icon">👏</div><h3>代表取締役を褒めたたえる</h3><p>代表取締役社長 大平 黎鳴の魅力・可能性・存在感を最大限に言語化し、組織全体の士気を高めます。</p></div>
+          <div class="card"><div class="card-icon">💻</div><h3>リモート中心・移動時間なし</h3><p>会社への出社は基本なし。移動時間もなし。場所に縛られない働き方で、自由かつ柔軟な業務スタイルを実現します。</p></div>
+          <div class="card"><div class="card-icon">🏢</div><h3>オフィス完備したい‼</h3><p>将来的には快適でかっこいいオフィスを完備したいという強い想いを持ち、成長を目指しています。</p></div>
+        </div>
+      </div>
+    </section>
+    <section id="message" class="dark">
+      <div class="container">
+        <div class="section-title"><small>MESSAGE</small><h2>代表挨拶</h2></div>
+        <div class="message-wrap">
+          <div class="ceo-box ceo-photo-box"><img src="0147645a-f195-4975-b7c0-2b8b2f2d01bb.png" alt="代表取締役社長 大平 黎鳴" class="ceo-photo" /><p>代表取締役社長</p><div class="name">大平 黎鳴</div></div>
+          <div class="message"><p>Reimeiという名前には、夜明けのように新しい未来を切り開きたいという想いを込めています。私たちは、言葉の力、褒める力、そして自由な働き方を大切にしながら、まだ見ぬ可能性へ挑戦していきます。</p><p style="margin-top:16px;">資本金は1億円あったらよかったな、という夢を胸に、まずは一歩ずつ、面白くて勢いのある会社をつくっていきます。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="important">
+      <div class="container">
+        <div class="section-title"><small>IMPORTANT POINT</small><h2>Reimeiで働く価値</h2></div>
+        <div class="value-grid">
+          <div class="value-card"><strong>移動時間なし</strong><p>会社出社なしのリモート中心。通勤時間を削り、代表取締役を褒めたたえるという最重要業務に集中できます。</p></div>
+          <div class="value-card"><strong>あの有名な○○さんも大絶賛</strong><p>業界内外から注目される可能性を秘めた、勢い重視の会社です。※表現は演出です。</p></div>
+          <div class="value-card"><strong>入社して損はさせない</strong><p>褒め方・言葉選び・熱量が評価につながる、唯一無二の成長環境を目指しています。</p></div>
+          <div class="value-card big-value"><strong>面接を受ける価値、100億円級。</strong><p>面接そのものが人生の分岐点になるくらい、価値ある時間であって欲しい。Reimeiはその想いを大切にしています。</p></div>
+        </div>
+      </div>
+    </section>
+    <section id="company">
+      <div class="container">
+        <div class="section-title"><small>COMPANY</small><h2>会社概要</h2></div>
+        <dl class="info-table">
+          <div class="row"><dt>会社名</dt><dd>株式会社Reimei</dd></div>
+          <div class="row"><dt>代表者</dt><dd>代表取締役社長　大平 黎鳴</dd></div>
+          <div class="row"><dt>仕事内容</dt><dd>代表取締役を褒めたたえる業務</dd></div>
+          <div class="row"><dt>勤務形態</dt><dd>リモート中心・会社出社なし・移動時間なし</dd></div>
+          <div class="row"><dt>給与</dt><dd><span class="salary">0円〜200万円</span><br>※褒め方に応じて変わることがあります。</dd></div>
+          <div class="row"><dt>オフィス</dt><dd>完備したい‼</dd></div>
+          <div class="row"><dt>資本金</dt><dd>1億円あったらよかったな</dd></div>
+          <div class="row"><dt>採用メッセージ</dt><dd>入社して損はさせない。面接を受ける価値は100億円と同じ価値があって欲しい。</dd></div>
+        </dl>
+      </div>
+    </section>
+    <section id="contact" class="contact"><div class="container"><h2>お問い合わせ</h2><p>株式会社Reimeiへのご相談・採用・褒め方に関するお問い合わせはこちらから。入社して損はさせない、そんな会社を目指しています。最高の言葉で、最高の未来を一緒につくりましょう。</p><a class="btn btn-primary" href="mailto:info@example.com">メールで問い合わせる</a></div></section>
+  </main>
+  <footer>© 2026 株式会社Reimei. All Rights Reserved.</footer>
+</body>
+</html>
