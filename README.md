@@ -1,6 +1,6 @@
-# Rixon株式会社 Webサイト GitHub Pages簡単アップロード版
+# Rixon株式会社 Webサイト 修正版
 
-この版はGitHub PagesでCSSが読み込まれない問題を避けるため、CSSとJavaScriptを各HTMLに埋め込み済みです。
+この版は、誤字・不自然な表現を修正したGitHub Pages向けのWebサイト一式です。CSSとJavaScriptは各HTMLに埋め込み済みです。
 画像もassetsフォルダではなく、すべてHTMLと同じ階層に置いています。
 
 ## GitHub Pagesへの置き方
@@ -21,3 +21,9 @@
 - app-development-photo.png
 - web-production-photo.png
 - mad-production-photo.png
+
+
+## 今回の修正内容
+- 見出しの不自然な改行を修正しました。
+- 「成果に／つなげる」のように単語の途中で割れないようにしました。
+- PC・スマホどちらでも見出しが自然に見えるよう、見出し専用の改行指定を追加しました。
